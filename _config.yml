@@ -4,7 +4,7 @@ description: >-
 url: "https://youimbong.github.io"
 baseurl: "/blog"
 og_image: "/assets/images/og-image.png"
-google_analytics: ""   # "G-XXXXXXXXXX" 입력 시 활성화
+google_analytics: "G-XJE8G3V4VX"   # "G-XXXXXXXXXX" 입력 시 활성화
 
 # Author
 author:

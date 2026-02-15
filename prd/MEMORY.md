@@ -18,26 +18,26 @@
 
 ```
 PHASE:     Phase 2 완료
-BLOCKER:   GitHub Pages 배포 URL 404 + Giscus/GA 실측정값 미입력
+BLOCKER:   Giscus 실측정값(repo_id/category_id) 미입력
 GIT:       모든 변경사항 unstaged (커밋 전)
-LAST_WORK: 2026-02-15 — 배포 URL 상태 점검(404 확인), T-011 추가
+LAST_WORK: 2026-02-15 — GA4 측정 ID 적용 완료 (G-XJE8G3V4VX)
 ```
 
 ## 활성 태스크 큐
 
 | ID | 태스크 | 상태 | 병렬 그룹 | 파일 |
 |----|--------|------|-----------|------|
-| T-001 | 빌드 검증 + 에러 수정 | `DONE` | - | `tasks/T-001-build-verify.md` |
-| T-002 | 샘플 포스트 작성 | `DONE` | A | `tasks/T-002-sample-posts.md` |
-| T-003 | 코드 복사 버튼 | `DONE` | A | `tasks/T-003-code-copy.md` |
-| T-004 | OG 이미지 + 파비콘 | `DONE` | A | `tasks/T-004-og-favicon.md` |
-| T-005 | 시리즈(연재) 기능 | `DONE` | B | `tasks/T-005-series.md` |
-| T-006 | 읽기 진행률 바 | `DONE` | B | `tasks/T-006-reading-progress.md` |
-| T-007 | TOC 사이드바 | `DONE` | B | `tasks/T-007-toc-sidebar.md` |
-| T-008 | 이미지 라이트박스 | `DONE` | C | `tasks/T-008-lightbox.md` |
-| T-009 | KaTeX 수학 수식 | `DONE` | C | `tasks/T-009-katex.md` |
-| T-010 | Google Analytics | `DONE` | C | `tasks/T-010-analytics.md` |
-| T-011 | GitHub Pages 배포 확인/복구 | `BLOCKED` | - | `tasks/T-011-deploy-verify.md` |
+| T-001 | 빌드 검증 + 에러 수정 | `DONE` | - | `complete/T-001-build-verify.md` |
+| T-002 | 샘플 포스트 작성 | `DONE` | A | `complete/T-002-sample-posts.md` |
+| T-003 | 코드 복사 버튼 | `DONE` | A | `complete/T-003-code-copy.md` |
+| T-004 | OG 이미지 + 파비콘 | `DONE` | A | `complete/T-004-og-favicon.md` |
+| T-005 | 시리즈(연재) 기능 | `DONE` | B | `complete/T-005-series.md` |
+| T-006 | 읽기 진행률 바 | `DONE` | B | `complete/T-006-reading-progress.md` |
+| T-007 | TOC 사이드바 | `DONE` | B | `complete/T-007-toc-sidebar.md` |
+| T-008 | 이미지 라이트박스 | `DONE` | C | `complete/T-008-lightbox.md` |
+| T-009 | KaTeX 수학 수식 | `DONE` | C | `complete/T-009-katex.md` |
+| T-010 | Google Analytics | `DONE` | C | `complete/T-010-analytics.md` |
+| T-011 | GitHub Pages 배포 확인/복구 | `DONE` | - | `complete/T-011-deploy-verify.md` |
 
 ### 상태 정의
 
@@ -68,7 +68,8 @@ prd/
 ├── LOG.md             ← 작업 타임라인 (세션별 히스토리)
 ├── SPEC.md            ← 아키텍처 + 디자인 시스템 + 기능 명세
 ├── TROUBLESHOOT.md    ← 트러블슈팅 + 수정 시 영향 범위
-└── tasks/
+├── tasks/             ← 신규/진행 태스크
+└── complete/          ← 완료 태스크 아카이브
     ├── T-001-build-verify.md
     ├── T-002-sample-posts.md
     ├── T-003-code-copy.md

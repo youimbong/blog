@@ -2,7 +2,7 @@
 
 ```yaml
 id: T-011
-status: BLOCKED
+status: DONE
 priority: HIGH
 parallel_group: null
 depends_on: []

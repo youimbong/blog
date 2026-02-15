@@ -5,6 +5,94 @@
 
 ---
 
+## 세션 #8 — 2026-02-15
+
+### 메타
+
+```
+시작: 사용자 요청 "완료된 파일은 완료 폴더로 이동"
+종료: 완료 태스크 파일 이동 및 경로 동기화 완료
+Agent: 싱글 Agent
+```
+
+### 수행 작업
+
+- 완료 태스크 파일 이동:
+  - `prd/tasks/T-001-build-verify.md` ~ `prd/tasks/T-011-deploy-verify.md`
+  - 이동 위치: `prd/complete/`
+- `prd/tasks/`는 비워 두고 신규/진행 태스크용으로 유지
+- `prd/MEMORY.md` 업데이트:
+  - 활성 태스크 큐의 파일 경로를 `tasks/...` → `complete/...`로 변경
+  - PRD 파일 맵에 `tasks`(진행), `complete`(완료 아카이브) 구조 반영
+
+### 검증 결과
+
+- `prd/complete/`에 완료 태스크 11개 존재 확인
+- `prd/tasks/` 비어 있음 확인
+- `MEMORY.md`의 태스크 경로가 실제 파일 위치와 일치
+
+### 미해결
+
+- [ ] Giscus repo_id / category_id 입력 (사용자 수동)
+
+---
+
+## 세션 #7 — 2026-02-15
+
+### 메타
+
+```
+시작: 사용자 제공 GA 스니펫 적용 요청
+종료: GA4 측정 ID 설정 반영 완료
+Agent: 싱글 Agent
+```
+
+### 수행 작업
+
+- 사용자 제공 코드에서 측정 ID 확인: `G-XJE8G3V4VX`
+- 기존 구현 확인:
+  - `_includes/head.html`에 `site.google_analytics` 조건부 `gtag` 스크립트가 이미 구현되어 있음
+- 설정 반영:
+  - `_config.yml`의 `google_analytics` 값을 `"G-XJE8G3V4VX"`로 업데이트
+- 문서 갱신:
+  - `prd/MEMORY.md` BLOCKER를 `Giscus 미입력`만 남도록 수정
+
+### 미해결
+
+- [ ] Giscus repo_id / category_id 입력 (사용자 수동)
+
+---
+
+## 세션 #6 — 2026-02-15
+
+### 메타
+
+```
+시작: 사용자 요청 "배포 되었어 다시 체크"
+종료: 배포 정상 확인, T-011 완료 처리
+Agent: 싱글 Agent
+```
+
+### 수행 작업
+
+- 배포 URL 검증:
+  - `https://youimbong.github.io/blog/` → `HTTP/2 200`
+  - `https://youimbong.github.io/blog/feed.xml` → `HTTP/2 200`
+  - `https://youimbong.github.io/blog/sitemap.xml` → `HTTP/2 200`
+- 포스트 페이지 렌더 확인:
+  - `markdown-guide` 페이지에서 `toc.js`, `reading-progress.js`, `lightbox.js`, `code-copy.js` 스크립트 태그 확인
+  - TOC 사이드바 마크업 렌더 확인
+- 문서/태스크 상태 갱신:
+  - `prd/tasks/T-011-deploy-verify.md` 상태 `DONE`
+  - `prd/MEMORY.md` BLOCKER 갱신 (배포 이슈 제거)
+
+### 미해결
+
+- [ ] Giscus repo_id / category_id 입력 (사용자 수동)
+- [ ] GA4 측정 ID 입력 (사용자 수동)
+
+---
+
 ## 세션 #5 — 2026-02-15
 
 ### 메타
