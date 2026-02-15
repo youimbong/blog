@@ -3,13 +3,107 @@ layout: default
 ---
 
 <div class="home">
-  <div class="post-list">
-    {% for post in paginator.posts %}
-      {% include post-card.html post=post %}
-    {% endfor %}
-  </div>
+  <section class="home-hero">
+    <p class="home-hero-kicker">Engineering Notes</p>
+    <h1 class="home-hero-title">{{ site.title }}</h1>
+    <p class="home-hero-description">{{ site.description }}</p>
+    <div class="home-hero-actions">
+      <a class="button-primary" href="{{ '/archive/' | relative_url }}">최신 글 보기</a>
+      <a class="button-secondary" href="{{ '/categories/' | relative_url }}">카테고리 보기</a>
+    </div>
+    <div class="home-hero-stats">
+      <span>Posts {{ site.posts.size }}</span>
+      <span>Categories {{ site.categories.size }}</span>
+      <span>Updated {{ site.time | date: "%y%m%d%H" }}</span>
+    </div>
+  </section>
 
-  {% if paginator.total_pages > 1 %}
-    {% include pagination.html %}
+  {% assign featured_posts = site.posts | where_exp: "post", "post.featured == true" %}
+  {% if featured_posts.size == 0 %}
+    {% assign featured_posts = site.posts | slice: 0, 2 %}
   {% endif %}
+  {% if featured_posts.size > 0 %}
+  <section class="home-section">
+    <div class="home-section-header">
+      <h2>Featured</h2>
+      <a href="{{ '/archive/' | relative_url }}">전체 보기</a>
+    </div>
+    <div class="post-grid post-grid-featured">
+      {% for post in featured_posts limit: 3 %}
+        {% include post-card.html post=post compact=true excerpt_limit=100 %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="home-section js-post-filter" data-empty-message="선택한 조건에 맞는 글이 없습니다.">
+    <div class="home-section-header">
+      <h2>Latest</h2>
+      <span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    </div>
+    <div class="list-controls">
+      <label>
+        카테고리
+        <select data-filter="category">
+          <option value="">전체</option>
+          {% for category in site.categories %}
+          <option value="{{ category[0] | downcase }}">{{ category[0] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        태그
+        <select data-filter="tag">
+          <option value="">전체</option>
+          {% for tag in site.tags %}
+          <option value="{{ tag[0] | downcase }}">{{ tag[0] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        정렬
+        <select data-filter="sort">
+          <option value="latest">최신순</option>
+          <option value="reading">읽기시간 짧은순</option>
+        </select>
+      </label>
+    </div>
+    <div class="post-grid" data-post-list>
+      {% for post in paginator.posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+    <p class="filter-empty" data-filter-empty hidden>선택한 조건에 맞는 글이 없습니다.</p>
+  </section>
+
+  {% assign sorted_categories = site.categories | sort %}
+  {% if sorted_categories.size > 0 %}
+  <section class="home-section">
+    <div class="home-section-header">
+      <h2>Category Rails</h2>
+      <a href="{{ '/categories/' | relative_url }}">카테고리 페이지</a>
+    </div>
+    <div class="category-rails">
+      {% for category in sorted_categories limit: 4 %}
+      {% assign latest_post = category[1] | first %}
+      <article class="category-rail">
+        <h3>
+          <a href="{{ '/categories/#' | append: category[0] | slugify | relative_url }}">{{ category[0] }}</a>
+          <small>{{ category[1].size }}</small>
+        </h3>
+        {% if latest_post %}
+        <a class="category-rail-link" href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a>
+        <p class="category-rail-meta">{{ latest_post.date | date: "%y%m%d%H" }}</p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <div class="home-pagination">
+    {% if paginator.total_pages > 1 %}
+      {% include pagination.html %}
+    {% endif %}
+  </div>
 </div>

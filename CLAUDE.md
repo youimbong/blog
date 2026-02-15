@@ -14,10 +14,16 @@ GitHub Pages 기반 커스텀 Jekyll 블로그. `main` 브랜치 push 시 자동
 bundle install
 
 # Local dev server (http://localhost:4000/blog/)
-bundle exec jekyll serve
+bin/test-server.sh
 
 # Build only
-bundle exec jekyll build
+bin/build.sh
+
+# Validate generated outputs and internal links
+bin/check-links.sh
+
+# Create a post template file
+bin/new-post.sh "Post Title" "Category" "tag1, tag2" "slug-optional"
 ```
 
 ## Architecture
@@ -49,7 +55,7 @@ bundle exec jekyll build
 ---
 layout: post
 title: "제목"
-date: YYYY-MM-DD
+date: YYYY-MM-DD HH:MM:SS +0900
 categories: [카테고리]
 tags: [태그1, 태그2]
 ---

@@ -40,6 +40,30 @@
     padding: var(--space-md);
   }
 
+  .post-grid,
+  .post-grid-featured,
+  .category-rails {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .home-hero {
+    padding: var(--space-lg);
+  }
+
+  .home-hero-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .home-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .list-controls {
+    grid-template-columns: 1fr;
+  }
+
   .post-title {
     font-size: var(--font-size-2xl);
   }
@@ -88,5 +112,10 @@
 
   .error-code {
     font-size: 5rem;
+  }
+
+  .button-primary,
+  .button-secondary {
+    width: 100%;
   }
 }

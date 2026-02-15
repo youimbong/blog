@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "코드 하이라이팅 테스트"
-date: 2026-02-14
+slug: code-examples
+date: 2026-02-14 13:00:00 +0900
 categories: [개발]
 tags: [코드, 하이라이팅, 테스트]
 series: "블로그 작성 가이드"

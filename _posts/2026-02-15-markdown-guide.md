@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "마크다운 작성 가이드"
-date: 2026-02-15
+slug: markdown-guide
+date: 2026-02-15 11:00:00 +0900
 categories: [가이드]
 tags: [마크다운, 블로그, 작성법]
 series: "블로그 작성 가이드"

@@ -5,6 +5,141 @@
 
 ---
 
+## 세션 #11 — 2026-02-15
+
+### 메타
+
+```
+시작: 사용자 요청 "모든 task 중단 없이 끝까지 진행"
+종료: T-103 ~ T-106 구현 및 검증 완료
+Agent: 싱글 Agent
+```
+
+### 수행 작업
+
+- T-103 검색 UX 고도화
+  - `search.html`: 최근 검색/키보드 안내 UI 추가
+  - `assets/js/search.js`: 가중치 검색 개선, 하이라이트 강화, ↑↓/Enter 탐색, 최근 검색(localStorage) 구현
+  - `search.json`: `timestamp` 추가, 본문 인덱스 길이 확장
+  - `_sass/_search.scss`: recent chip/active result 스타일 추가
+- T-104 홈/아카이브 필터 + 정렬
+  - `_layouts/home.html`, `archive.html`: category/tag/sort 컨트롤 추가
+  - `_includes/post-card.html`: 필터/정렬용 data attribute 추가
+  - `assets/js/filter-sort.js` 신규: URL 쿼리 동기화 + 상태 복원 + 필터/정렬 처리
+  - `_sass/_layout.scss`, `_sass/_archive.scss`, `_sass/_responsive.scss` 보강
+- T-105 성능 최적화
+  - `_includes/head.html`: CDN preconnect 추가
+  - `_layouts/default.html`, `_layouts/post.html`: 비필수 스크립트 defer 적용
+  - `assets/js/performance.js` 신규: 이미지 lazy/async decoding 적용
+- T-106 운영 자동화
+  - `bin/check-links.sh` 신규: 빌드 산출물 + 주요 내부 링크 검사
+  - `bin/build.sh`: 빌드 후 검사 자동 실행
+  - `README.md`, `CLAUDE.md`, `prd/TROUBLESHOOT.md` 문서 업데이트
+- 태스크/허브 상태 갱신
+  - `prd/tasks/T-103`~`T-106` 상태 `DONE`
+  - `prd/MEMORY.md` Phase 3 완료 상태 반영
+
+### 검증 결과
+
+- `./bin/build.sh` 성공
+  - Jekyll 빌드 성공
+  - `[check] required outputs and primary internal links are valid` 통과
+- 빌드 산출물에 핵심 기능 마크업/스크립트 포함 확인
+  - 검색 recent/키보드 가이드
+  - 홈/아카이브 필터 컨트롤
+  - `filter-sort.js`, `performance.js` 로드
+
+### 미해결
+
+- [ ] Giscus repo_id / category_id 입력 (사용자 수동)
+
+---
+
+## 세션 #10 — 2026-02-15
+
+### 메타
+
+```
+시작: 사용자 요청 "구현 시작"
+종료: T-101/T-102 구현 및 빌드 검증 완료
+Agent: 싱글 Agent
+```
+
+### 수행 작업
+
+- 홈 레이아웃 개편 (`_layouts/home.html`)
+  - Hero 섹션 추가 (소개/CTA/통계)
+  - Featured 섹션 추가 (front matter `featured: true` 우선, 없으면 최신글 fallback)
+  - Latest 섹션을 그리드 기반으로 재배치
+  - Category Rails 섹션 추가 (카테고리별 최신글 노출)
+- 카드 include 확장 (`_includes/post-card.html`)
+  - `compact`, `excerpt_limit` 파라미터 지원
+- 스타일 개편
+  - `_sass/_layout.scss`: 홈 Hero/섹션/버튼/카테고리 레일 스타일
+  - `_sass/_post-card.scss`: 2열/3열 그리드 + compact 카드 스타일
+  - `_sass/_responsive.scss`: 768px/480px 반응형 보정
+- 태스크 상태 반영
+  - `prd/tasks/T-101-home-redesign.md` → `DONE`
+  - `prd/tasks/T-102-featured-and-rails.md` → `DONE`
+  - `prd/MEMORY.md` 상태/큐 업데이트
+
+### 검증 결과
+
+- `./bin/build.sh` 성공
+- `_site/index.html`에 아래 섹션 렌더 확인
+  - `home-hero`
+  - `Featured`
+  - `Latest`
+  - `Category Rails`
+
+### 미해결
+
+- [ ] T-103 검색 UX 고도화
+- [ ] T-104 필터 + 정렬 기능
+- [ ] T-105 성능 최적화
+- [ ] T-106 운영 자동화
+
+---
+
+## 세션 #9 — 2026-02-15
+
+### 메타
+
+```
+시작: 사용자 요청 "모던/기능 고도화 작업을 prd/tasks로 문서화하고 연결파일 업데이트"
+종료: 신규 태스크 생성 + MEMORY/LOG/SPEC 동기화 완료
+Agent: 싱글 Agent
+```
+
+### 수행 작업
+
+- 신규 태스크 6개 생성 (`prd/tasks/`)
+  - `T-101-home-redesign.md`
+  - `T-102-featured-and-rails.md`
+  - `T-103-search-upgrade.md`
+  - `T-104-filter-sort.md`
+  - `T-105-performance-polish.md`
+  - `T-106-ops-quality-gates.md`
+- `prd/MEMORY.md` 갱신
+  - 현재 상태를 Phase 3 준비로 전환
+  - 활성 태스크 큐에 T-101~T-106 등록 (`READY`)
+  - 병렬 그룹 D/E/F 의존성 규칙 추가
+  - PRD 파일 맵에 신규 tasks 파일 연결
+- `prd/SPEC.md`에 Phase 3 목표/범위 섹션 추가 (홈 구조, 탐색/검색, 성능, 운영 자동화)
+- `prd/TROUBLESHOOT.md`에 Phase 3 공통 리스크/체크포인트 추가
+
+### 검증 결과
+
+- `prd/tasks/`에 신규 태스크 6개 파일 존재 확인
+- `MEMORY.md` 태스크 큐 경로와 실제 파일 위치 일치 확인
+
+### 미해결
+
+- [ ] T-101 착수 (홈 구조 개편)
+- [ ] Giscus repo_id / category_id 입력 (사용자 수동)
+
+---
+
 ## 세션 #8 — 2026-02-15
 
 ### 메타

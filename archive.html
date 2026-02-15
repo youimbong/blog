@@ -8,15 +8,52 @@ permalink: /archive/
   <h1 class="page-title">아카이브</h1>
   <p class="page-description">총 {{ site.posts.size }}개의 글</p>
 
-  {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-  {% for year in postsByYear %}
-  <div class="archive-year-group">
-    <h2 class="archive-year">{{ year.name }}</h2>
-    <ul class="archive-list">
-      {% for post in year.items %}
-      <li class="archive-item">
+  <section class="archive-filters js-post-filter" data-empty-message="조건에 맞는 아카이브 항목이 없습니다.">
+    <div class="list-controls">
+      <label>
+        카테고리
+        <select data-filter="category">
+          <option value="">전체</option>
+          {% for category in site.categories %}
+          <option value="{{ category[0] | downcase }}">{{ category[0] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        태그
+        <select data-filter="tag">
+          <option value="">전체</option>
+          {% for tag in site.tags %}
+          <option value="{{ tag[0] | downcase }}">{{ tag[0] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        정렬
+        <select data-filter="sort">
+          <option value="latest">최신순</option>
+          <option value="reading">읽기시간 짧은순</option>
+        </select>
+      </label>
+    </div>
+
+    <ul class="archive-list" data-post-list>
+      {% for post in site.posts %}
+      {% assign word_count = post.content | number_of_words %}
+      {% assign reading_minutes = word_count | divided_by: 200 %}
+      {% if reading_minutes < 1 %}
+        {% assign reading_minutes = 1 %}
+      {% endif %}
+      <li
+        class="archive-item"
+        data-post-item
+        data-category="{{ post.categories | first | default: '' | downcase }}"
+        data-tags="{{ post.tags | join: ',' | downcase }}"
+        data-reading="{{ reading_minutes }}"
+        data-date="{{ post.date | date: '%s' }}"
+      >
         <time class="archive-date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%m.%d" }}
+          {{ post.date | date: "%y%m%d%H" }}
         </time>
         <a href="{{ post.url | relative_url }}" class="archive-link">{{ post.title }}</a>
         {% if post.categories.size > 0 %}
@@ -25,6 +62,6 @@ permalink: /archive/
       </li>
       {% endfor %}
     </ul>
-  </div>
-  {% endfor %}
+    <p class="filter-empty" data-filter-empty hidden>조건에 맞는 아카이브 항목이 없습니다.</p>
+  </section>
 </div>

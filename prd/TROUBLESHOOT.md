@@ -6,6 +6,14 @@
 
 ## 빌드 에러
 
+### 포스트 미표시
+
+```
+증상: 홈/아카이브에서 글이 0개로 표시됨
+원인: _posts 파일명이 Jekyll 규칙(YYYY-MM-DD-slug.md)과 불일치
+해결: 파일명을 YYYY-MM-DD-slug.md 형식으로 복구
+```
+
 ### SCSS 컴파일
 
 ```
@@ -91,6 +99,41 @@
 1. Settings → Pages → Source = "Deploy from branch" (main)
 2. Actions 탭에서 로그 확인
 3. 로컬 bundle exec jekyll build 성공 여부 확인
+4. 로컬 bin/check-links.sh 로 내부 링크/산출물 검증
+```
+
+## Phase 3 고도화 체크포인트
+
+### 홈 개편 후 글 목록 누락
+
+```
+확인: _layouts/home.html에서 paginator.posts 루프 유지 여부
+원인: Featured/필터 로직 추가 중 기본 루프 제거
+해결: 기본 목록 렌더 경로를 fallback으로 보존
+```
+
+### 필터/정렬 URL 상태 불일치
+
+```
+증상: URL 쿼리와 화면 결과가 다름
+확인: 초기 렌더 시 querystring 파싱/적용 순서
+해결: 초기화 단계에서 쿼리→UI→리스트 순서 강제
+```
+
+### 검색 키보드 탐색 오작동
+
+```
+증상: Enter 입력 시 잘못된 항목 열림
+원인: 활성 인덱스와 렌더 순서 불일치
+해결: 렌더 후 활성 인덱스 범위 재검증
+```
+
+### 성능 개선 후 스크립트 회귀
+
+```
+증상: defer/지연 로드 후 TOC/검색 미동작
+원인: DOMContentLoaded 타이밍 의존 코드
+해결: 초기화 시점 통일 (readyState 체크 + 이벤트 바인딩)
 ```
 
 ---

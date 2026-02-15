@@ -17,10 +17,10 @@
 ## 현재 상태
 
 ```
-PHASE:     Phase 2 완료
-BLOCKER:   Giscus 실측정값(repo_id/category_id) 미입력
+PHASE:     Phase 3 완료 (T-101~T-106 완료)
+BLOCKER:   없음
 GIT:       모든 변경사항 unstaged (커밋 전)
-LAST_WORK: 2026-02-15 — GA4 측정 ID 적용 완료 (G-XJE8G3V4VX)
+LAST_WORK: 2026-02-15 — 검색/필터/성능/운영 자동화(T-103~T-106) 구현 완료
 ```
 
 ## 활성 태스크 큐
@@ -38,6 +38,12 @@ LAST_WORK: 2026-02-15 — GA4 측정 ID 적용 완료 (G-XJE8G3V4VX)
 | T-009 | KaTeX 수학 수식 | `DONE` | C | `complete/T-009-katex.md` |
 | T-010 | Google Analytics | `DONE` | C | `complete/T-010-analytics.md` |
 | T-011 | GitHub Pages 배포 확인/복구 | `DONE` | - | `complete/T-011-deploy-verify.md` |
+| T-101 | 홈 화면 IA 재설계 + 모던 레이아웃 | `DONE` | D | `tasks/T-101-home-redesign.md` |
+| T-102 | Featured/카테고리 레일 콘텐츠 섹션 | `DONE` | D | `tasks/T-102-featured-and-rails.md` |
+| T-103 | 검색 UX 고도화 (가중치/키보드 탐색) | `DONE` | E | `tasks/T-103-search-upgrade.md` |
+| T-104 | 홈/아카이브 필터 + 정렬 기능 | `DONE` | E | `tasks/T-104-filter-sort.md` |
+| T-105 | 성능 최적화 + 체감 품질 개선 | `DONE` | F | `tasks/T-105-performance-polish.md` |
+| T-106 | 운영 자동화 (품질 게이트) | `DONE` | F | `tasks/T-106-ops-quality-gates.md` |
 
 ### 상태 정의
 
@@ -58,6 +64,9 @@ CANCELLED  — 취소됨
 의존성:
   T-001 (빌드 검증)은 독립 실행 — 결과에 따라 다른 태스크 수정 필요할 수 있음
   그룹 A, B, C는 서로 독립 — 파일 충돌 없음
+  그룹 D는 홈 레이아웃 중심 태스크(T-101 선행 권장)
+  그룹 E는 탐색/검색 강화 (T-104는 T-101 이후 진행 권장)
+  그룹 F는 성능/운영 자동화로 병렬 진행 가능
 ```
 
 ## PRD 파일 맵
@@ -69,6 +78,12 @@ prd/
 ├── SPEC.md            ← 아키텍처 + 디자인 시스템 + 기능 명세
 ├── TROUBLESHOOT.md    ← 트러블슈팅 + 수정 시 영향 범위
 ├── tasks/             ← 신규/진행 태스크
+│   ├── T-101-home-redesign.md
+│   ├── T-102-featured-and-rails.md
+│   ├── T-103-search-upgrade.md
+│   ├── T-104-filter-sort.md
+│   ├── T-105-performance-polish.md
+│   └── T-106-ops-quality-gates.md
 └── complete/          ← 완료 태스크 아카이브
     ├── T-001-build-verify.md
     ├── T-002-sample-posts.md
@@ -124,3 +139,4 @@ prd/
 | 2026-02-15 | 클라이언트 JS 검색 | 커스텀 플러그인 불가 제약 |
 | 2026-02-15 | Pretendard + JetBrains Mono | 한국어 최적 + 코드 가독성 |
 | 2026-02-15 | index.md → index.html | jekyll-paginate v1이 .html에서만 동작 |
+| 2026-02-15 | 포스트 파일명 규칙 유지 (`YYYY-MM-DD-slug.md`) | Jekyll `_posts` 인식 규칙 준수 |

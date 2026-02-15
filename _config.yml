@@ -38,13 +38,15 @@ sass:
 comments:
   giscus:
     repo: "youimbong/blog"
-    repo_id: ""           # https://giscus.app 에서 획득
+    repo_id: "R_kgDORQj01g"
     category: "Announcements"
-    category_id: ""       # https://giscus.app 에서 획득
+    category_id: "DIC_kwDORQj01s4C2eNr"       # https://giscus.app 에서 획득
     mapping: "pathname"
+    strict: "0"
     reactions_enabled: "1"
     emit_metadata: "0"
-    input_position: "top"
+    input_position: "bottom"
+    theme: "preferred_color_scheme"
     lang: "ko"
 
 # Exclude from build
