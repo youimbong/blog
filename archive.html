@@ -1,0 +1,30 @@
+---
+layout: default
+title: Archive
+permalink: /archive/
+---
+
+<div class="archive-page">
+  <h1 class="page-title">아카이브</h1>
+  <p class="page-description">총 {{ site.posts.size }}개의 글</p>
+
+  {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in postsByYear %}
+  <div class="archive-year-group">
+    <h2 class="archive-year">{{ year.name }}</h2>
+    <ul class="archive-list">
+      {% for post in year.items %}
+      <li class="archive-item">
+        <time class="archive-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%m.%d" }}
+        </time>
+        <a href="{{ post.url | relative_url }}" class="archive-link">{{ post.title }}</a>
+        {% if post.categories.size > 0 %}
+        <span class="archive-category">{{ post.categories | first }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>

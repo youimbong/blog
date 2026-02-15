@@ -1,0 +1,18 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+
+<div class="search-page">
+  <h1 class="page-title">검색</h1>
+
+  <div class="search-box">
+    <input type="text" id="search-input" class="search-input" placeholder="검색어를 입력하세요..." autocomplete="off" autofocus>
+  </div>
+
+  <div id="search-results" class="search-results"></div>
+  <p id="search-no-results" class="search-no-results" style="display:none;">검색 결과가 없습니다.</p>
+</div>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>

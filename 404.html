@@ -1,25 +1,12 @@
 ---
-permalink: /404.html
 layout: default
+permalink: /404.html
+title: "404"
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1>404</h1>
-  <p><strong>Page not found :(</strong></p>
-  <p>요청하신 페이지를 찾을 수 없습니다.</p>
-  <p><a href="{{ '/' | relative_url }}">홈으로 돌아가기</a></p>
+<div class="error-page">
+  <div class="error-code">404</div>
+  <h1 class="error-title">페이지를 찾을 수 없습니다</h1>
+  <p class="error-description">요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.</p>
+  <a href="{{ '/' | relative_url }}" class="error-home-link">홈으로 돌아가기 &rarr;</a>
 </div>
