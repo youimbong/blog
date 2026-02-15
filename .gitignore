@@ -10,8 +10,8 @@ vendor/
 Gemfile.lock
 
 # IDE
-.idea/
-.vscode/
+.idea
+.vscode
 *.swp
 *.swo
 *~
@@ -22,3 +22,22 @@ Thumbs.db
 
 # Environment
 .env
+
+# Claude Code
+.claude/
+.mcp.json
+
+# System / sandbox artifacts
+.bash_profile
+.bashrc
+.profile
+.zprofile
+.zshrc
+.gitconfig
+.gitmodules
+.ripgreprc
+HEAD
+config
+hooks
+objects
+refs
