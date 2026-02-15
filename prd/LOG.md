@@ -5,6 +5,37 @@
 
 ---
 
+## 세션 #5 — 2026-02-15
+
+### 메타
+
+```
+시작: 사용자 요청 "나머지 계속 진행"
+종료: 배포 상태 확인 완료, 신규 배포 태스크(T-011) 추가
+Agent: 싱글 Agent
+```
+
+### 수행 작업
+
+- 현재 설정값 확인:
+  - `_config.yml`의 `comments.giscus.repo_id`, `comments.giscus.category_id`, `google_analytics`가 모두 빈 값임을 확인
+- 외부 상태 점검:
+  - `https://youimbong.github.io/`, `https://youimbong.github.io/blog/`, `feed.xml`, `sitemap.xml` 응답 확인
+  - 결과: 전부 `HTTP/2 404`
+  - 반면 `https://github.com/youimbong/blog`는 `HTTP/2 200`
+- 문서 갱신:
+  - `prd/MEMORY.md` BLOCKER 업데이트
+  - 배포 확인 태스크 `prd/tasks/T-011-deploy-verify.md` 생성
+  - 큐에 `T-011` 추가 (`BLOCKED`)
+
+### 미해결
+
+- [ ] `T-011` GitHub Pages 배포 설정/복구 (GitHub 저장소 설정 확인 필요)
+- [ ] Giscus repo_id / category_id 입력 (사용자 수동)
+- [ ] GA4 측정 ID 입력 (사용자 수동)
+
+---
+
 ## 세션 #4 — 2026-02-15
 
 ### 메타

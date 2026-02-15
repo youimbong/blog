@@ -18,9 +18,9 @@
 
 ```
 PHASE:     Phase 2 완료
-BLOCKER:   없음
+BLOCKER:   GitHub Pages 배포 URL 404 + Giscus/GA 실측정값 미입력
 GIT:       모든 변경사항 unstaged (커밋 전)
-LAST_WORK: 2026-02-15 — T-001 빌드 검증 완료, 전체 T-001~T-010 DONE
+LAST_WORK: 2026-02-15 — 배포 URL 상태 점검(404 확인), T-011 추가
 ```
 
 ## 활성 태스크 큐
@@ -37,6 +37,7 @@ LAST_WORK: 2026-02-15 — T-001 빌드 검증 완료, 전체 T-001~T-010 DONE
 | T-008 | 이미지 라이트박스 | `DONE` | C | `tasks/T-008-lightbox.md` |
 | T-009 | KaTeX 수학 수식 | `DONE` | C | `tasks/T-009-katex.md` |
 | T-010 | Google Analytics | `DONE` | C | `tasks/T-010-analytics.md` |
+| T-011 | GitHub Pages 배포 확인/복구 | `BLOCKED` | - | `tasks/T-011-deploy-verify.md` |
 
 ### 상태 정의
 
@@ -77,7 +78,8 @@ prd/
     ├── T-007-toc-sidebar.md
     ├── T-008-lightbox.md
     ├── T-009-katex.md
-    └── T-010-analytics.md
+    ├── T-010-analytics.md
+    └── T-011-deploy-verify.md
 ```
 
 ## 세션 시작 프로토콜
