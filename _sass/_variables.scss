@@ -1,0 +1,115 @@
+// ============================================
+// CSS Custom Properties (Light / Dark themes)
+// ============================================
+
+:root {
+  // Light theme (default)
+  --color-bg: #FDF6EC;
+  --color-bg-secondary: #F5EBD9;
+  --color-bg-card: #FFFFFF;
+  --color-text: #3D2C1E;
+  --color-text-secondary: #6B5344;
+  --color-text-muted: #8C7A6B;
+  --color-heading: #2E1F14;
+  --color-link: #C46243;
+  --color-link-hover: #A8482E;
+  --color-accent: #C46243;
+  --color-accent-light: rgba(196, 98, 67, 0.1);
+  --color-border: #E0D3C3;
+  --color-border-light: #EDE3D5;
+  --color-shadow: rgba(61, 44, 30, 0.08);
+  --color-shadow-hover: rgba(61, 44, 30, 0.15);
+  --color-tag-bg: #F0E4D4;
+  --color-tag-text: #6B5344;
+  --color-code-bg: #F5EFE6;
+  --color-code-text: #6B5344;
+  --color-kbd-bg: #E8DFD1;
+  --color-selection: rgba(196, 98, 67, 0.2);
+  --color-scrollbar: #D4C4B0;
+  --color-scrollbar-hover: #C0AD96;
+
+  // Code block colors (light)
+  --code-bg: #FAF4EB;
+  --code-text: #3D2C1E;
+  --code-comment: #8C7A6B;
+  --code-keyword: #B5533E;
+  --code-string: #5B8A3C;
+  --code-number: #C46243;
+  --code-function: #7B5EA7;
+  --code-variable: #3D7A99;
+  --code-operator: #6B5344;
+  --code-class: #B5863A;
+
+  // Layout
+  --max-width: 780px;
+  --header-height: 64px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+
+  // Spacing
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  // Typography
+  --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-code: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --line-height-tight: 1.3;
+  --line-height-base: 1.7;
+  --line-height-loose: 1.9;
+
+  // Transitions
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1A1512;
+  --color-bg-secondary: #231E19;
+  --color-bg-card: #2A2420;
+  --color-text: #E8DFD1;
+  --color-text-secondary: #BBA98F;
+  --color-text-muted: #8C7A6B;
+  --color-heading: #F5EBD9;
+  --color-link: #E07A5F;
+  --color-link-hover: #F0A080;
+  --color-accent: #E07A5F;
+  --color-accent-light: rgba(224, 122, 95, 0.15);
+  --color-border: #3D342C;
+  --color-border-light: #332B24;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-hover: rgba(0, 0, 0, 0.5);
+  --color-tag-bg: #332B24;
+  --color-tag-text: #BBA98F;
+  --color-code-bg: #2A2420;
+  --color-code-text: #BBA98F;
+  --color-kbd-bg: #3D342C;
+  --color-selection: rgba(224, 122, 95, 0.3);
+  --color-scrollbar: #3D342C;
+  --color-scrollbar-hover: #4D433A;
+
+  // Code block colors (dark)
+  --code-bg: #231E19;
+  --code-text: #E8DFD1;
+  --code-comment: #8C7A6B;
+  --code-keyword: #E07A5F;
+  --code-string: #8FBC6F;
+  --code-number: #F0A080;
+  --code-function: #B89ADB;
+  --code-variable: #6BB8D6;
+  --code-operator: #BBA98F;
+  --code-class: #DDB870;
+}

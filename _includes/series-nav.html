@@ -1,0 +1,21 @@
+{% if page.series %}
+  {% assign series_posts = site.posts | where: "series", page.series | sort: "series_order" %}
+  {% if series_posts.size > 0 %}
+  <details class="series-nav" open>
+    <summary class="series-nav-summary">시리즈: {{ page.series }} ({{ series_posts.size }}편)</summary>
+    <ol class="series-nav-list">
+      {% for post in series_posts %}
+      {% assign order = post.series_order | default: forloop.index %}
+      <li class="series-nav-item{% if post.url == page.url %} is-current{% endif %}">
+        <span class="series-nav-order">{{ order }}.</span>
+        {% if post.url == page.url %}
+        <span class="series-nav-title">{{ post.title }}</span>
+        {% else %}
+        <a href="{{ post.url | relative_url }}" class="series-nav-link">{{ post.title }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </details>
+  {% endif %}
+{% endif %}

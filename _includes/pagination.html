@@ -1,0 +1,21 @@
+<nav class="pagination" aria-label="페이지 네비게이션">
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-btn pagination-prev" aria-label="이전 페이지">
+    &larr; 이전
+  </a>
+  {% else %}
+  <span class="pagination-btn pagination-prev disabled">&larr; 이전</span>
+  {% endif %}
+
+  <span class="pagination-info">
+    {{ paginator.page }} / {{ paginator.total_pages }}
+  </span>
+
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-btn pagination-next" aria-label="다음 페이지">
+    다음 &rarr;
+  </a>
+  {% else %}
+  <span class="pagination-btn pagination-next disabled">다음 &rarr;</span>
+  {% endif %}
+</nav>

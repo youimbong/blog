@@ -1,0 +1,87 @@
+// ============================================
+// Categories & Tags Pages
+// ============================================
+
+// Shared styles
+.category-group,
+.tag-group {
+  margin-bottom: var(--space-2xl);
+}
+
+.category-name,
+.tag-name {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.category-count,
+.tag-group-count {
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-secondary);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.category-posts,
+.tag-posts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-post-item,
+.tag-post-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border-light);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  a {
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  time {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+// Tag cloud
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-lg);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius);
+}
+
+.tag-cloud-item {
+  cursor: pointer;
+
+  .tag-count {
+    font-size: var(--font-size-xs);
+    opacity: 0.7;
+    margin-left: 2px;
+  }
+}

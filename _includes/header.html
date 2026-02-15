@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+    <nav class="site-nav">
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-list">
+        {% for item in site.data.navigation %}
+        <li>
+          <a href="{{ item.url | relative_url }}"
+             {% if page.url == item.url %}class="active"{% endif %}>
+            {{ item.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% include theme-toggle.html %}
+  </div>
+</header>

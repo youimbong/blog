@@ -1,0 +1,91 @@
+// ============================================
+// Code Syntax Highlighting (Rouge)
+// ============================================
+
+// Inline code
+:not(pre) > code {
+  padding: 2px 6px;
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+// Code blocks
+.highlight {
+  margin: var(--space-lg) 0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border-light);
+  position: relative;
+
+  pre {
+    margin: 0;
+    padding: var(--space-lg);
+    background-color: var(--code-bg);
+    overflow-x: auto;
+    border: none;
+    border-radius: 0;
+
+    code {
+      background: none;
+      padding: 0;
+      color: var(--code-text);
+      font-family: var(--font-code);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-loose);
+    }
+  }
+}
+
+.code-copy-button {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  padding: 4px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(255, 255, 255, 0.78);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+[data-theme="dark"] .code-copy-button {
+  background-color: rgba(35, 30, 25, 0.78);
+}
+
+.code-copy-button:hover,
+.code-copy-button.is-copied {
+  background-color: var(--color-accent-light);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+// Rouge token styles
+.highlight {
+  .c, .c1, .cm, .cs { color: var(--code-comment); font-style: italic; }   // Comments
+  .k, .kc, .kd, .kn, .kp, .kr, .kt { color: var(--code-keyword); }       // Keywords
+  .s, .s1, .s2, .sb, .sc, .sd, .sh, .sx { color: var(--code-string); }    // Strings
+  .m, .mi, .mf, .mh, .mo, .il { color: var(--code-number); }              // Numbers
+  .nf, .fm { color: var(--code-function); }                                 // Functions
+  .nv, .vi, .vg, .vc { color: var(--code-variable); }                      // Variables
+  .o, .ow { color: var(--code-operator); }                                  // Operators
+  .nc, .nn { color: var(--code-class); }                                    // Classes
+  .na { color: var(--code-variable); }                                      // Attributes
+  .nb { color: var(--code-function); }                                      // Built-in
+  .bp { color: var(--code-variable); }                                      // Pseudo
+  .ni { color: var(--code-keyword); }                                       // Entity
+  .ne { color: var(--code-keyword); }                                       // Exception
+  .nl { color: var(--code-variable); }                                      // Label
+  .no { color: var(--code-number); }                                        // Constant
+  .p { color: var(--code-text); }                                           // Punctuation
+  .err { color: var(--code-keyword); }                                      // Error
+  .gd { color: var(--code-keyword); background: rgba(196, 98, 67, 0.1); }  // Deleted
+  .gi { color: var(--code-string); background: rgba(91, 138, 60, 0.1); }   // Inserted
+  .gh { color: var(--code-class); font-weight: bold; }                      // Heading
+  .gu { color: var(--code-comment); font-weight: bold; }                    // Subheading
+  .w { color: var(--code-text); }                                           // Whitespace
+}

@@ -1,0 +1,122 @@
+// ============================================
+// Table of Contents
+// ============================================
+
+.toc-wrapper {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.toc-sidebar {
+  margin-bottom: var(--space-xl);
+}
+
+.toc-sidebar .toc-wrapper {
+  margin-bottom: 0;
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toc-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.toc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  border-radius: var(--border-radius-sm);
+  transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+
+  &:hover {
+    color: var(--color-text);
+    background-color: var(--color-accent-light);
+  }
+
+  &[aria-expanded="false"] {
+    transform: rotate(-90deg);
+  }
+}
+
+.toc {
+  margin-top: var(--space-md);
+  transition: max-height var(--transition-base), opacity var(--transition-base);
+
+  &.is-collapsed {
+    display: none;
+  }
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-item {
+  margin-bottom: 2px;
+}
+
+.toc-item-sub {
+  margin-bottom: 2px;
+  padding-left: var(--space-lg);
+}
+
+.toc-link {
+  display: block;
+  padding: 4px var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  border-radius: 4px;
+  border-left: 2px solid transparent;
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-accent);
+    background-color: var(--color-accent-light);
+  }
+
+  &.is-active {
+    color: var(--color-accent);
+    border-left-color: var(--color-accent);
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 1101px) {
+  .post-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .post-main {
+    order: 1;
+  }
+
+  .toc-sidebar {
+    order: 2;
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-xl));
+    max-height: calc(100vh - var(--header-height) - 64px);
+    overflow-y: auto;
+    width: 220px;
+    margin-bottom: 0;
+  }
+}

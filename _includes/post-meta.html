@@ -1,0 +1,11 @@
+<span class="meta-date">
+  <time datetime="{{ include.post.date | date_to_xmlschema }}">
+    {{ include.post.date | date: "%Y년 %m월 %d일" }}
+  </time>
+</span>
+{% if include.post.categories.size > 0 %}
+<span class="meta-separator">&middot;</span>
+<span class="meta-category">{{ include.post.categories | first }}</span>
+{% endif %}
+<span class="meta-separator">&middot;</span>
+{% include reading-time.html post=include.post %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include header.html %}
+  <main>
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/code-copy.js' | relative_url }}"></script>
+</body>
+</html>

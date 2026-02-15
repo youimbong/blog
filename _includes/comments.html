@@ -1,0 +1,19 @@
+{% if site.comments.giscus.repo_id != "" %}
+<div class="comments-section" id="comments">
+  <h2 class="comments-title">댓글</h2>
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ site.comments.giscus.repo }}"
+    data-repo-id="{{ site.comments.giscus.repo_id }}"
+    data-category="{{ site.comments.giscus.category }}"
+    data-category-id="{{ site.comments.giscus.category_id }}"
+    data-mapping="{{ site.comments.giscus.mapping }}"
+    data-reactions-enabled="{{ site.comments.giscus.reactions_enabled }}"
+    data-emit-metadata="{{ site.comments.giscus.emit_metadata }}"
+    data-input-position="{{ site.comments.giscus.input_position }}"
+    data-theme="light"
+    data-lang="{{ site.comments.giscus.lang }}"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+{% endif %}

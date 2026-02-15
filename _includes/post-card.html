@@ -1,0 +1,18 @@
+<article class="post-card">
+  <a href="{{ include.post.url | relative_url }}" class="post-card-link">
+    <h2 class="post-card-title">{{ include.post.title | escape }}</h2>
+    <div class="post-card-meta">
+      {% include post-meta.html post=include.post %}
+    </div>
+    {% if include.post.excerpt %}
+    <p class="post-card-excerpt">{{ include.post.excerpt | strip_html | truncate: 160 }}</p>
+    {% endif %}
+  </a>
+  {% if include.post.tags.size > 0 %}
+  <div class="post-card-tags">
+    {% for tag in include.post.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
