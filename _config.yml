@@ -3,16 +3,19 @@ description: >-
   개발과 기술에 대한 이야기를 기록하는 블로그입니다.
 url: "https://youimbong.github.io"
 baseurl: "/blog"
+og_image: "/assets/images/og-image.png"
+google_analytics: ""   # "G-XXXXXXXXXX" 입력 시 활성화
 
 # Author
 author:
   name: youimbong
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
 
 # Permalink
 permalink: /:categories/:year/:month/:day/:title/
@@ -24,7 +27,25 @@ kramdown:
   syntax_highlighter: rouge
 
 # Pagination
-paginate: 10
+paginate: 5
+paginate_path: "/page/:num/"
+
+# Sass
+sass:
+  style: compressed
+
+# Comments (Giscus)
+comments:
+  giscus:
+    repo: "youimbong/blog"
+    repo_id: ""           # https://giscus.app 에서 획득
+    category: "Announcements"
+    category_id: ""       # https://giscus.app 에서 획득
+    mapping: "pathname"
+    reactions_enabled: "1"
+    emit_metadata: "0"
+    input_position: "top"
+    lang: "ko"
 
 # Exclude from build
 exclude:
@@ -33,3 +54,5 @@ exclude:
   - README.md
   - CLAUDE.md
   - vendor
+  - node_modules
+  - prd
