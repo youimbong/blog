@@ -1,0 +1,35 @@
+title: Youimbong Blog
+description: >-
+  개발과 기술에 대한 이야기를 기록하는 블로그입니다.
+url: "https://youimbong.github.io"
+baseurl: "/blog"
+
+# Author
+author:
+  name: youimbong
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Permalink
+permalink: /:categories/:year/:month/:day/:title/
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Pagination
+paginate: 10
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CLAUDE.md
+  - vendor
